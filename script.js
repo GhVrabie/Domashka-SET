@@ -1,337 +1,249 @@
-// Exercise 1
+// Task 1
+// Создайте set s1. Добавьте в него три элемента 'h', 'b', 'o', 'h'. Добавление делайте через add. Выведите в консоль получившийся набор (set) s1.
 
-let d1 = [33,'best', 66, 'best'];
+let s1 = new Set();
 
-let b1 = document.querySelector(".b-1");
-let inp1 = document.querySelector(".i-1");
-let out1 = document.querySelector(".out-1");
+s1.add("h");
+s1.add("b");
+s1.add("o");
+s1.add("h");
 
-b1.onclick = function f1() {
-    inp1 = inp1.value;
-    d1.push(inp1);
-
-    out1.innerHTML = showArr();
-}
+console.log(s1);
 
 
-// Exercise 2
+// Task 2
+// При нажатии b-2 выполняете функцию f2. Функция должна добавить в набор s2 элементы, которые пользователь вводит в i-2. Функция должна выводить в консоль s2 после каждого добавления элемента.
 
 let b2 = document.querySelector(".b-2");
-let out2 = document.querySelector(".out-2");
+let input2 = document.querySelector(".i-2");
+let s2 = new Set();
+
 
 b2.onclick = function f2() {
-    d1.pop();
+    let add = "";
 
-    out2.innerHTML = showArr();
+    if(s2.size >= 0) {
+       add += input2.value;
+    }
+
+    s2.add(add);
+
+    console.log(s2);
 }
 
 
-// Exercise 3
+// Task 3
+// При нажатии b-3 выполняете функцию f3. Функция должна удалить из набора s3 строку, которую пользователь вводит в i-3. Функция должна выводить в консоль s3 после каждого удаления элемента.
 
-let b3 = document.querySelector(".b-3");
-let out3 = document.querySelector(".out-3");
+let input3 = document.querySelector(".i-3");
+let s3 = new Set(['one', 'two', 'four']);
 
-b3.onclick = function f3() {
-    d1.shift();
-
-    out3.innerHTML = showArr();
+const f3 = () => { 
+    for(let value of s3) {
+        if(value == input3.value) {
+            s3.delete(value);
+        }
+    }
+    console.log(s3);
 }
 
+document.querySelector('.b-3').onclick = f3;
 
-// Exercise 4
 
-let b4 = document.querySelector(".b-4");
+// Task 4
+// При нажатии b-4 выполняете функцию f4. Функция должна проверить наличие в наборе s4 строки введенной пользователем в i-4. Если строка есть - то вывести в out-4 true. Если нет - false.
+
+let input4 = document.querySelector(".i-4");
 let out4 = document.querySelector(".out-4");
-let inp4 = document.querySelector(".i-4");
-
-b4.onclick = function f4() {
-    inp4 = inp4.value;
-    d1.push(inp4);
-
-    out4.innerHTML = showArr();
-}
-
-
-// Exercise 5
-
-let b5 = document.querySelector(".b-5");
-let out5 = document.querySelector(".out-5");
-let inp5 = document.querySelector(".i-5");
-
-b5.onclick = function f5() {
-    inp5 = inp5.value;
-    d1.unshift(inp5);
-
-    out5.innerHTML = showArr();
-}
-
-
-function showArr() {
-    return d1;
-}
-
-
-// Exercise 6
-
-let b6 = document.querySelector(".b-6");
-let out6 = document.querySelector(".out-6");
-let inp6 = document.querySelector(".i-6");
-let d6 = ['test', 5, 12];
-
-b6.onclick = function f6() {
-    d6[d6.length] = inp6.value;
-
-    out6.innerHTML = d6;
-    console.log(d6);
-}
-
-
-// Exercise 7
-
-let b7 = document.querySelector(".b-7");
-let out7 = document.querySelector(".out-7");
-let d7 = ['china', 'india', 'brazil', 'japan', 'egypt'];
-
-b7.onclick = function f7() {
-    let d7New = [];
-
-    for(let i = d7.length - 1; i > 0; i--) {
-        d7New[i] = d7[i - 1];
-    }
-    d7 = d7New;
-
-    out7.innerHTML = d7;
-    console.log(d7);
-}
-
-// Exercise 8
-
-let b8 = document.querySelector(".b-8");
-let out8 = document.querySelector(".out-8");
-let inp8 = document.querySelector(".i-8");
-let d8 = [2,'4', 12, 67, 'hello'];
-
-b8.onclick = function f8() {
-    let d8New = [];
-    d8New[0] = inp8.value;
-
-    for(let i = 0; i < d8.length; i++) {
-        d8New[i + 1] = d8[i];
-    }
-    d8 = d8New;
-
-    out8.innerHTML = d8;
-    console.log(d8);
-}
-
-
-// Exercise 9
-
-let b9 = document.querySelector(".b-9");
-let out9 = document.querySelector(".out-9");
-d9 = [100, 200, 300, 400, 700, 121];
-
-b9.onclick = function f9() {
-    let d9New = [];
-    
-    for(let i = 1; i < d9.length; i++) {
-        d9New[i - 1] = d9[i];
-    }
-    d9 = d9New;
-
-    out9.innerHTML = d9;
-    console.log(d9);
-
-}
-
-
-// Exercise 10
-
-let b10 = document.querySelector(".b-10");
-let out10 = document.querySelector(".out-10");
-let d10 = [3,14,15,92,6];
-
-b10.onclick = function f10() {
-    out10.innerHTML = d10.reverse();
-}
-
-
-// Exercise 11
-
-let b11 = document.querySelector(".b-11");
-let out11 = document.querySelector(".out-11");
-let inp11 = document.querySelector(".i-11");
-let d11 = [2,3,4,5,6,7];
-
-b11.onclick = function f11() {
-    inp11 = +inp11.value;
-
-    for(let i = 0; i < d11.length; i++) {
-        if(inp11 > d11[i]) {
-            out11.innerHTML = d11.indexOf(inp11);
-        } else if(inp11 == d11[i]) {
-            out11.innerHTML = d11.indexOf(inp11);
-        }
-    }
-}
-
-
-// Exercise 12
-
-let b12 = document.querySelector(".b-12");
-let out12 = document.querySelector(".out-12");
-let inp12 = document.querySelector(".i-12");
-let d12 = [6, 62, 60, 70, 1, 5];
-
-b12.onclick = function f12() {
-    inp12 = +inp12.value;
-    let max = d12[3];
-
-    for(let i = 0; i < d12.length; i++) {
-        if(inp12 > max) {
-            out12.innerHTML = Number(-1);
-        } else if(inp12 == d12[i]) {
-            out12.innerHTML = i;
-        }
-    }
-}
-
-
-// Exercise 13
-
-let b13 = document.querySelector(".b-13");
-let out13 = document.querySelector(".out-13");
-let d13 = [6, 0, 22, 1, 4, 76];
-let d13Reverse = [];
-
-b13.onclick = function f13() {
-    for(let i = 0; i < d13.length; i++) {
-        d13Reverse[i] = d13[(d13.length - 1) - i]
-    }
-    out13.innerHTML = d13Reverse;
-}
-
-
-// Exercise 14
-
-let b14 = document.querySelector(".b-14");
-let out14 = document.querySelector(".out-14");
-let inp14 = document.querySelector(".i-14");
-let d14 = [];
-
-b14.onclick = function f14() {
-    inp14 = +inp14.value;
-    let arr14 = []
-
-    for(let i = 0; i < inp14; i++) {
-        arr14[i] = 1;
-    }
-    
-    d14 = arr14;
-    out14.innerHTML = d14;
-}
-
-
-// Exercise 15
-
-let b15 = document.querySelector(".b-15");
-let out15 = document.querySelector(".out-15");
-let inp15 = document.querySelector(".i-15");
-let d15 = [0, 2, 5, -4, 6, 22, -9, -12, 8, 12, 13, 78];
-
-b15.onclick = function f15() {
-    inp15 = +inp15.value;
-
-    for(let i = 0; i < d15.length; i++) {
-        if(d15.indexOf(inp15) == -1) {
-            d15.push(inp15);
-        }
-    }
-    out15.innerHTML = d15;
-}
-
-
-// Exercise 16
-
-let b16 = document.querySelector(".b-16");
-let out16 = document.querySelector(".out-16");
-let d161 = [5,6,7,8,9];
-let d162 = [23,24,56,87];
-let d16 = [];
-
-b16.onclick = function f16() {
-    d16 = d161.concat(d162);
-
-    out16.innerHTML = d16;
-}
-
-
-// Exercise 17
-
-let b17 = document.querySelector(".b-17");
-let out17 = document.querySelector(".out-17");
-let d171 = ['a', 'b', 'c', 'd'];
-let d172 = [1, 2, 3, 4, 5];
-let d17 = [];
-
-b17.onclick = function f17() {
-    let arrConcat = [];
-    for(let i = 0; i < d171.length; i++) {
-        arrConcat.push(d171[i]);
-    }
-    for(let j = 0; j < d172.length; j++) {
-        arrConcat.push(d172[j]);
-    } 
-    d17 = arrConcat;
-
-    out17.innerHTML = d17;
-}
-
-
-// Exercise 18
-
-let b18 = document.querySelector(".b-18");
-let out18 = document.querySelector(".out-18");
-let inp18 = document.querySelector(".i-18");
-let d18 = ['b', 'c', '45', 'e', 'z', 'y'];
-
-b18.onclick = function f18() {
-    inp18 = inp18.value;
-
-    if(d18.includes(inp18)) {
-        out18.innerHTML = inp18;
+let s4 = new Set(['a', 'b', 'c', 'z']);
+
+const f4 = () => { 
+    if(s4.has(input4.value)) {
+        out4.innerHTML = input4.value;
     } else {
-        out18.innerHTML = d18.indexOf(inp18);
+        out4.innerHTML = "Item not found";
     }
+    console.log(s4);
 }
 
+document.querySelector('.b-4').onclick = f4;
 
-// Exercise 19
 
-let b19 = document.querySelector(".b-19");
-let out19 = document.querySelector(".out-19");
-let d19 = ['Your','payment','method','will','automatically','be','charged','in','advance','every' ];
+// Task 5
+//  При нажатии b-5 выполняете функцию f5. Функция должна вывести в out-5 количество элементов в наборе s5.
 
-b19.onclick = function f19() {
-    let maxString = d19[0];
-    for(let i = 0; i < d19.length; i++) {
-        if(d19[i].length > maxString.length) {
-            maxString = d19[i];
+let out5 = document.querySelector(".out-5");
+let s5 = new Set(['a', 'b', 'c', 'z', 'a2', 'b2', 'c2', 'z2']);
+
+const f5 = () => {
+    console.log(s5.size);
+}
+
+document.querySelector('.b-5').onclick = f5;
+
+
+// Task 6
+// При нажатии b-6 выполняете функцию f6. Функция должна вывести в out-6 число уникальных элементов в массиве a6. Решение должно использовать set.
+
+let out6 = document.querySelector(".out-6");
+let a6 = [1, 2, 3, 4, 5, 3, 4, 5, 2, 4, 5, 3, 24, 5, 2, 4, 56, 4, 3, 2, 335, 2, 23, 41, 3, 4, 1, 1, 4, 2, 2, 4, 5, 24, 5, 3, 22, 56];
+
+const f6 = () => { 
+    let b = new Set(a6);
+    console.log(b);
+}
+
+document.querySelector('.b-6').onclick = f6;
+
+
+// Task 7
+// При нажатии b-7 выполняете функцию f7. Функция должна получать из i-7 значение пароля и проверять, чтобы пользователь в строке пароля использовал не повторяющиеся символы. Если символы уникальны, а длина пароля больше ( строго) 6 то выводите в out-7 число 1. Если есть повторяющиеся символы, или длина меньше или равна 6 - то выводите 0. Для проверки уникальности символов используйте Set.
+
+let input7 = document.querySelector(".i-7");
+let out7 = document.querySelector(".out-7");
+
+const f7 = () => { 
+    input7 = input7.value;
+
+    let s7 = new Set(input7);
+    if (input7.length > 6 && s7.size > 6) {
+        out7.innerHTML = 1;
+    }
+    else {
+        out7.innerHTML = 0;
+    }
+    console.log(s7);
+}
+
+document.querySelector('.b-7').onclick = f7;
+
+
+// Task 8
+// При нажатии b-8 выполняете функцию f8. Функция должна перебрать набор s8 и добавить в массив ar8 только числа больше 5. Выведите массив в консоль.
+
+let out8 = document.querySelector(".out-8");
+
+let s8 = new Set([1, 2, 3, 4, 5, 3, 4, 7, 9, 5, 7, 8, 9, 23, 45, 5, 2, 4, 5, 3, 24, 5, 2, 4, 56, 4, 3, 2, 335, 2, 23, 41, 3, 4, 1, 1, 4, 2, 2, 4, 5, 24, 5, 3, 22, 56]);
+let ar8 = [];
+
+const f8 = () => { 
+    // let biggerNum = "";
+
+    for(let value of s8) {
+        if(value > 5) {
+            ar8.push(value);
         }
     }
-    out19.innerHTML = maxString;
+    console.log(ar8)
+}
+
+document.querySelector('.b-8').onclick = f8;
+
+
+// Task 9
+//  При нажатии b-9 выполняете функцию f9. Функция должна принимать набор our_set в качестве параметра, преобразовывать его в строку, причем после каждого символа строки должен быть пробел. Функция должна возвращать результирующую строку. 
+// В нашем примере результат должен быть 9 8 7 6 5 
+
+const f9 = our_set => { 
+    return our_set;
+}
+
+document.querySelector('.b-9').onclick = () => {
+    let s9 = new Set([9, 8, 7, 6, 5]);
+    let our_set = "";
+
+    for(let value of s9) {
+        our_set += value.toString() + " ";
+    }
+    s9 = our_set;
+
+    document.querySelector('.out-9').innerHTML = f9(s9);
 }
 
 
-// Exercise 20
+// Task 10
+// При нажатии b-10 выполняете функцию f10. Функция должна принимать набор set в качестве параметра и выводить его в указанный элемент. Элемент указывается как второй параметр функции f10. Вывод значений - через пробел.
 
-let b20 = document.querySelector(".b-20");
-let out20 = document.querySelector(".out-20");
-let d20 = [4,5,6,7,8,9,10]
+// К сожалению не понимаю как эта функция работает! :)
 
-b20.onclick = function f20() {
-    out20.innerHTML = d20.join(" ")
+
+// Task 11
+//  При нажатии b-11 выполняете функцию f11. Функция должна преобразовать массив a11 в набор. И выводить в консоль. Изучите вывод получившегося набора. Разберитесь почему так происходит.
+// Да, эта задача решена! Просто разберитесь.
+
+const f11 = () => {
+    let s = new Set();
+    s.add([1]);
+    s.add([1]);
+    console.log(s);
 }
+
+document.querySelector('.b-11').onclick = f11;
+
+
+// Task 12
+//   При нажатии b-12 выполняете функцию f12. Функция должна преобразовать строку str12 в массив, так, что каждая буква - отдельный элемент массива. Потом создать набор на основе массива и возвратить его.
+
+let str12 = 'The name conjures up visions of plum pudding and Christmas punch quaint coaching inns and cozy firesides but also of orphaned and starving children';
+
+const f12 = () => {
+    str12 = str12.replace(/\s/g, '');
+
+    let a12 = [];
+    let strToArr = "";
+
+    for(let i = 0; i < str12.length; i++) {
+        strToArr += a12.push(str12[i]);
+    }
+
+    let set12 = new Set(a12);
+    return set12;
+
+        // Без итераций, ведь так же короче код?
+
+        // str12 = str12.replace(/\s/g, '');
+
+        // let a12 = Array.from(str12);
+        // let set12 = new Set(a12);
+        // return set12;
+}
+
+document.querySelector('.b-12').onclick = () => {
+    console.log(f12());
+}
+
+
+// Task 13
+//  При нажатии b-13 выполняете функцию f13. Функция должна преобразовать строку str13 в массив, причем каждая буква - отдельный элемент массива. Потом создать набор на основе массива. Затем, перебирая набор поэлементам, найти сколько раз каждый символ встречается в исходном массиве. Результат - в виде объекта типа { символ : количество, символ : количество } вывести в консоль и возвратить.
+// пример результата для строки 'Hello ho'
+// { "H" : 1, 'e' : 1, 'l' : 2, "o" : 2, " ": 1}
+
+let str13 = 'The name conjures up visions of plum pudding and Christmas punch quaint coaching inns and cozy firesides but also of orphaned and starving children';
+
+const f13 = () => {
+    str13 = str13.replace(/\s/g, '');
+
+    let a13 = Array.from(str13);
+    let set13 = new Set(a13);
+    let result = {};
+
+    for(let item of set13) {
+        let counter = 0;
+        for(let i = 0; i < str13.length; i++) {
+            if(str13[i] === item) {
+                counter++;
+            }
+        }
+        result[item] = counter;
+    }
+
+    return Object.entries(result);
+}
+
+document.querySelector('.b-13').onclick = () => {
+    console.log(f13());
+}
+
 
 
 
@@ -343,33 +255,40 @@ b20.onclick = function f20() {
 
 // CLASSWORK
 
-// const a = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-// const b = ["a", "b", "c", "d", "e", "f"];
 
-// push = всегда добавляет элементы в конце массива
+// SET собирает только уникальные значения, без повторений. Применяется строгое равенство.
 
-// a.push(10, 20, 30, 40); 
+// let a = new Set(); 
+
 // console.log(a);
 
-// b.push("g, h, i, j");
+// a.add(1);
+// a.add(2);
+// a.add("hello");
+
+// console.log(a.size);
+// console.log(a.has(2));
+// console.log(a.has("2")); // false
+
+// a.delete(1);
+// console.log(a);
+
+
+// for/for in - не работают для SET
+
+
+// for(let item of a) {
+//     console.log(item);
+// }
+
+// let arr = [2, 2, 3, 7, 9, 9, 0, 0, 1, 4, 6, "hello", "world"];
+
+// let b = new Set(arr);
 // console.log(b);
+// console.log(b.size);
 
 
-// pop = отрезать элементы из массива
+// Далее превращаем SET в массив. Тут уже работают все методы массива по индексу, push и т.д.
 
-// console.log(b.pop());
-// console.log(b.pop());
-
-// delete = удаление элемента внутри массива
-
-// delete a[3];
-// console.log(a);
-
-// splice = удаление элемента внутри массива, но не оставляю элемент пустым (empty). Но когда мы его используем вместо
-// delete то нарушается индексация. Поэтому массивы лучше клонировать и работать с клоном наших массивов до новых изменений и т.д.
-
-// a.splice(3, 3);
-// a.splice(3, 5, "world")
-// console.log(a);
-
-// shift unshift работают примерно как push и pop
+// let bArr = Array.from(b);
+// console.log(bArr);
